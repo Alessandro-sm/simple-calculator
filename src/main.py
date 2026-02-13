@@ -1,22 +1,7 @@
+from operations import addition, subtraction, multiplication, division
+
 while True:
     try:
-
-        def addition():
-            sum = number_a + number_b
-            return sum
-        
-        def subtraction():
-            sub = number_a - number_b
-            return sub
-        
-        def multiplication():
-            mult = number_a * number_b
-            return mult
-
-        def division():
-            div = number_a / number_b
-            return div
-
         print("======== CHOOSE THE OPERATION ========")
         print("=> 1.- Addition")
         print("=> 2.- Subtraction")
@@ -27,24 +12,27 @@ while True:
         choice = int(input("--> "))
 
         if 0 <= choice <= 4:
-            
             if choice == 0:
                 break
 
-            number_a = float(input("Indicate the first number: "))
-            number_b = float(input("Indicate the second number: "))
+            a = float(input("Indicate the first number: "))
+            b = float(input("Indicate the second number: "))
 
             if choice == 1:
-                print(f"The answer is {addition()}")
+                print(f"The answer is {addition(a, b)}")
     
             elif choice == 2:
-                print(f"The answer is {subtraction()}")
+                print(f"The answer is {subtraction(a, b)}")
 
             elif choice == 3:
-                print(f"The answer is {multiplication()}")
+                print(f"The answer is {multiplication(a, b)}")
 
             elif choice == 4:
-                print(f"The answer is {division()}")
+                result = division(a, b)
+                if result == "Error":
+                    print("Error: Division by zero is not allowed.")
+                else:
+                    print(f"The answer is {result}")
 
             another = input("Do you want another operation? (yes/no): ").lower()
             if another != "yes" and another != "y":
